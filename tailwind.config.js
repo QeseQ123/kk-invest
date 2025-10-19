@@ -1,28 +1,31 @@
-module.exports = {
+/** @type {import('tailwindcss').Config} */
+export default {
   content: [
-    './index.html',
-    './src/**/*.{js,jsx,ts,tsx}'
+    "./index.html",          // ścieżka do głównego pliku HTML
+    "./src/**/*.{js,jsx,ts,tsx}"  // wszystkie pliki React w src
   ],
   theme: {
     extend: {
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'], // font Inter jako domyślny dla klasy font-inter
+      },
       colors: {
-        'kk-cyan': '#00ffe1',
-        'kk-blue': '#0066ff',
-        'kk-gold': '#ffd166',
-        'kk-rose': '#ff6b6b'
+        primary: '#0066FF',
+        secondary: '#00FFE1',
+        accent: '#FFD166',
+        highlight: '#FF6B6B',
+      },
+      animation: {
+        blob: 'blob 7s infinite',
       },
       keyframes: {
         blob: {
-          '0%': { transform: 'translate(0px,0px) scale(1)' },
-          '33%': { transform: 'translate(30px,-20px) scale(1.05)' },
-          '66%': { transform: 'translate(-20px,30px) scale(0.95)' },
-          '100%': { transform: 'translate(0px,0px) scale(1)' }
-        }
+          '0%, 100%': { transform: 'translate(0px, 0px) scale(1)' },
+          '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+          '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+        },
       },
-      animation: {
-        'blob': 'blob 9s ease-in-out infinite'
-      }
-    }
+    },
   },
   plugins: [],
 }
