@@ -103,4 +103,22 @@ const Services = () => (
   </section>
 )
 
+const KKInvestLanding = () => (
+  <div className="min-h-screen text-white bg-[#0a0a0a] overflow-hidden">
+    <header className="p-6 flex items-center justify-between relative z-10">
+      <Logo />
+      <Nav />
+    </header>
+
+    <main>
+      <Hero />
+      <Services />
+    </main>
+
+    <footer className="py-10 text-center text-sm opacity-60">
+      © {new Date().getFullYear()} K&K Invest — Wszystkie prawa zastrzeżone.
+    </footer>
+  </div>
+);
+
 export default KKInvestLanding;
