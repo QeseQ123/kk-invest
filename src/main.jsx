@@ -1,14 +1,11 @@
+// src/main.jsx
 import React from 'react';
-import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import App from './App';
-import './index.css';
+import ReactDOM from 'react-dom/client';
+import KKInvestLanding from './KKInvestLanding';
+import './index.css'; // Tailwind itp.
 
-
-createRoot(document.getElementById('root')).render(
-<React.StrictMode>
-<BrowserRouter>
-<App />
-</BrowserRouter>
-</React.StrictMode>
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <KKInvestLanding />
+  </React.StrictMode>
 );
