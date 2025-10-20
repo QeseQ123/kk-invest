@@ -1,15 +1,27 @@
+/* src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root{
+/* ----------------- Root variables ----------------- */
+:root {
   --bg-1: #000000;
   --bg-2: #071129;
+  --bg-3: #050816;
 }
 
-html,body,#root{ height:100%; }
+/* ----------------- Global styles ----------------- */
+html,
+body,
+#root {
+  height: 100%;
+}
 
-body{ @apply bg-gradient-to-b from-black via-[#050816] to-[#071129] text-white font-inter; }
+body {
+  @apply bg-gradient-to-b from-black via-[#050816] to-[#071129] text-white font-inter;
+}
 
-/* small helper */
-.container{ @apply max-w-7xl mx-auto }
+/* ----------------- Helpers ----------------- */
+.container {
+  @apply max-w-7xl mx-auto;
+}
