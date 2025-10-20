@@ -59,7 +59,7 @@ const Footer = () => (
   </footer>
 )
 
-export default function KKInvestLanding(){
+export default function KKInvestLandingPart2(){
   return (
     <div className="min-h-screen overflow-x-hidden">
       <header className="py-6">
