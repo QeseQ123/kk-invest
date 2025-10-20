@@ -1,10 +1,11 @@
+// src/main.jsx
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import KKInvestLanding from './KKInvestLanding';
-import './index.css';
+import App from './App';
+import './index.css'; // Twój Tailwind / globalne style
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <KKInvestLanding />
+    <App />
   </React.StrictMode>
 );

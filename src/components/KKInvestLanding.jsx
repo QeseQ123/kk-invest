@@ -29,7 +29,9 @@ const Nav = () => (
     <Link to="/o-nas" className="nav-link">O nas</Link>
     <Link to="/realizacje" className="nav-link">Realizacje</Link>
     <Link to="/kontakt" className="nav-link">Kontakt</Link>
-    <a className="ml-4 px-4 py-2 rounded-lg bg-gradient-to-r from-[#ffd166] to-[#ff6b6b] text-black font-semibold shadow-lg">Zamów wycenę</a>
+    <a className="ml-4 px-4 py-2 rounded-lg bg-gradient-to-r from-[#ffd166] to-[#ff6b6b] text-black font-semibold shadow-lg">
+      Zamów wycenę
+    </a>
   </nav>
 );
 
