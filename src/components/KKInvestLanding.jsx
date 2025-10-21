@@ -1,8 +1,10 @@
 // src/components/KKInvestLanding.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Menu, Mail, Phone, MapPin, Home, Building, ShoppingCart, Factory } from 'lucide-react';
+import { House, Building, ShoppingBag, Hammer } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import '@fontsource/inter';
+import '@fontsource/orbitron';
 
 // ---------- Logo ----------
 const Logo = () => (
@@ -69,33 +71,26 @@ const Hero = () => (
   </section>
 );
 
-// ---------- Object Types Section (z ikonami) ----------
+// ---------- Object Types Section ----------
 const ObjectTypes = () => {
   const types = [
-    { title: 'Mieszkaniowe', desc: 'Budynki przeznaczone do zamieszkania.', icon: Home },
-    { title: 'Użyteczności publicznej', desc: 'Szkoły, przedszkola, biblioteki.', icon: Building },
-    { title: 'Handlowo-usługowe (komercja)', desc: 'Sklepy, biura, restauracje.', icon: ShoppingCart },
-    { title: 'Przemysłowe', desc: 'Hale produkcyjne, magazyny, warsztaty.', icon: Factory },
+    { icon: <House size={24} />, label: 'Mieszkalne' },
+    { icon: <Building size={24} />, label: 'Użyteczności publicznej' },
+    { icon: <ShoppingBag size={24} />, label: 'Handlowo-usługowe' },
+    { icon: <Hammer size={24} />, label: 'Przemysłowe' },
   ];
 
   return (
-    <section className="py-20">
+    <section className="py-20 bg-neutral-900 text-white">
       <div className="container px-6">
-        <h2 className="text-2xl font-semibold">Rodzaje realizacji</h2>
-        <p className="mt-2 text-neutral-400">
-          Specjalizujemy się w wykonawstwie stanów surowych różnych typów obiektów:
-        </p>
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {types.map((item, i) => {
-            const Icon = item.icon;
-            return (
-              <div key={i} className="p-6 bg-white/5 rounded-2xl border border-white/10 shadow-lg flex flex-col items-center text-center">
-                <Icon className="w-10 h-10 text-[#00FFE1] mb-4" />
-                <div className="font-semibold text-lg">{item.title}</div>
-                <div className="mt-2 text-sm text-neutral-300">{item.desc}</div>
-              </div>
-            );
-          })}
+        <h2 className="text-2xl font-semibold mb-8">Rodzaje realizacji</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {types.map((t, i) => (
+            <motion.div key={i} whileHover={{ y: -6 }} className="p-6 bg-white/5 rounded-2xl flex flex-col items-center justify-center gap-3 border border-white/10 shadow-lg">
+              {t.icon}
+              <div className="text-center text-sm font-semibold">{t.label}</div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
@@ -106,49 +101,12 @@ const ObjectTypes = () => {
 const Services = () => (
   <section className="py-20">
     <div className="container px-6">
-      <motion.h2 initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="text-2xl font-semibold">Nasza oferta</motion.h2>
+      <motion.h2 initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="text-2xl font-semibold mb-4">
+        Nasza oferta
+      </motion.h2>
       <p className="mt-3 text-neutral-300 max-w-2xl">
         Kompleksowe wykonawstwo stanu surowego — od fundamentów po konstrukcję dachu.
       </p>
-
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-        {[
-          { title: 'Stan surowy otwarty & zamknięty', desc: 'Szybkie tempo i kontrola jakości.' },
-          { title: 'Zarządzanie projektem', desc: 'Koordynacja podwykonawców, harmonogram.' },
-          { title: 'Konsultacje techniczne', desc: 'Wsparcie od projektu do wykonania.' },
-        ].map((s, i) => (
-          <motion.div key={i} whileHover={{ y: -6 }} className="p-6 bg-white/3 rounded-2xl border border-white/6 shadow-lg">
-            <div className="text-sm opacity-80">{s.title}</div>
-            <div className="mt-3 text-neutral-300">{s.desc}</div>
-            <div className="mt-4 text-xs opacity-60">Dowiedz się więcej →</div>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
-
-// ---------- Projects Section ----------
-const Projects = () => (
-  <section className="py-20 bg-gradient-to-b from-transparent to-black/5">
-    <div className="container px-6">
-      <h3 className="text-2xl font-semibold">Wybrane realizacje</h3>
-      <p className="mt-2 opacity-80">Kompaktowa galeria naszych najnowszych projektów — surowo, precyzyjnie, przyszłościowo.</p>
-      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <motion.div key={i} whileHover={{ scale: 1.02 }} className="rounded-2xl overflow-hidden bg-white/4 border border-white/6 shadow-xl">
-            <div className="h-48 bg-[linear-gradient(135deg,#001d3d,rgba(0,199,255,0.18))] flex items-end p-4">
-              <div>
-                <div className="text-xs opacity-70">Projekt {i + 1}</div>
-                <div className="font-semibold">Budynek mieszkalny</div>
-              </div>
-            </div>
-            <div className="p-4 text-sm text-neutral-300">
-              Krótkie streszczenie: realizacja stanu surowego dla inwestycji wielorodzinnej. Terminy: 12 miesięcy
-            </div>
-          </motion.div>
-        ))}
-      </div>
     </div>
   </section>
 );
@@ -195,9 +153,8 @@ export default function KKInvestLanding() {
   return (
     <>
       <Hero />
-      <ObjectTypes /> {/* NOWA SEKCJA */}
+      <ObjectTypes />      {/* <-- nowa sekcja z ikonami */}
       <Services />
-      <Projects />
       <Contact />
       <Footer />
 
