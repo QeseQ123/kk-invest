@@ -1,11 +1,12 @@
 // src/components/KKInvestLanding.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Home, Building, Factory, Clock } from 'lucide-react';
+import { Mail, Phone, MapPin, Home, Building, Factory } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import '@fontsource/inter';
 import '@fontsource/orbitron';
 import OfficeHours from './OfficeHours';
+
 
 // ---------- Logo ----------
 const Logo = () => (
@@ -48,12 +49,7 @@ const FloatingGrid = () => (
 
 // ---------- Hero Section ----------
 const Hero = () => (
-  <motion.section
-    initial={{ opacity: 0, y: 30 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8 }}
-    className="relative min-h-[72vh] flex items-center"
-  >
+  <section className="relative min-h-[72vh] flex items-center">
     <FloatingGrid />
     <div className="container px-6 z-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -78,69 +74,118 @@ const Hero = () => (
             <div className="p-3 bg-white/6 rounded-xl flex items-center gap-2"><Factory size={16} /> Stan surowy</div>
           </div>
         </motion.div>
+
+        <motion.div initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.9 }} className="relative">
+          <div className="h-[420px] rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-gradient-to-b from-white/3 to-black/5">
+            <div className="w-full h-full grid grid-cols-2 grid-rows-2">
+              {['Komercja','Mieszkania','Inwestorzy','Stan surowy'].map((t, i) => (
+                <div key={i} className={`p-6 ${i % 2 ? 'bg-[url("data:image/svg+xml;utf8,<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"400\\" height=\\"400\\"><rect width=\\"100%\\" height=\\"100%\\" fill=\\"%23000000%22 opacity=0.05/></svg>")]' : ''}`}>
+                  <div className="h-full flex flex-col justify-between">
+                    <div>
+                      <div className="text-sm opacity-70">{t}</div>
+                      <div className="mt-2 font-semibold text-lg">Projekt #{i + 1}</div>
+                    </div>
+                    <div className="text-xs opacity-60">Powierzchnia: {Math.floor(5000 + i * 1200)} m²</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </div>
-  </motion.section>
+  </section>
 );
 
 // ---------- Services Section ----------
 const Services = () => (
-  <motion.section
-    initial={{ opacity: 0, y: 30 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8, delay: 0.2 }}
-    className="py-20"
-  >
+  <section className="py-20">
     <div className="container px-6">
-      <motion.h2 initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8 }}>Nasza oferta</motion.h2>
+      <motion.h2 initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="text-2xl font-semibold">Nasza oferta</motion.h2>
       <p className="mt-3 text-neutral-300 max-w-2xl">
         Kompleksowe wykonawstwo stanu surowego — od fundamentów po konstrukcję dachu.
       </p>
+
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+        {[
+          { title: 'Stan surowy otwarty & zamknięty', desc: 'Szybkie tempo i kontrola jakości.' },
+          { title: 'Zarządzanie projektem', desc: 'Koordynacja podwykonawców, harmonogram.' },
+          { title: 'Konsultacje techniczne', desc: 'Wsparcie od projektu do wykonania.' },
+        ].map((s, i) => (
+          <motion.div key={i} whileHover={{ y: -6 }} className="p-6 bg-white/3 rounded-2xl border border-white/6 shadow-lg">
+            <div className="text-sm opacity-80">{s.title}</div>
+            <div className="mt-3 text-neutral-300">{s.desc}</div>
+            <div className="mt-4 text-xs opacity-60">Dowiedz się więcej →</div>
+          </motion.div>
+        ))}
+      </div>
     </div>
-  </motion.section>
+  </section>
 );
 
 // ---------- Projects Section ----------
 const Projects = () => (
-  <motion.section
-    initial={{ opacity: 0, y: 30 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8, delay: 0.4 }}
-    className="py-20 bg-gradient-to-b from-transparent to-black/5"
-  >
+  <section className="py-20 bg-gradient-to-b from-transparent to-black/5">
     <div className="container px-6">
       <h3 className="text-2xl font-semibold">Wybrane realizacje</h3>
       <p className="mt-2 opacity-80">Kompaktowa galeria naszych najnowszych projektów — surowo, precyzyjnie, przyszłościowo.</p>
+      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <motion.div key={i} whileHover={{ scale: 1.02 }} className="rounded-2xl overflow-hidden bg-white/4 border border-white/6 shadow-xl">
+            <div className="h-48 bg-[linear-gradient(135deg,#001d3d,rgba(0,199,255,0.18))] flex items-end p-4">
+              <div>
+                <div className="text-xs opacity-70">Projekt {i + 1}</div>
+                <div className="font-semibold">Budynek mieszkalny</div>
+              </div>
+            </div>
+            <div className="p-4 text-sm text-neutral-300">
+              Krótkie streszczenie: realizacja stanu surowego dla inwestycji wielorodzinnej. Terminy: 12 miesięcy
+            </div>
+          </motion.div>
+        ))}
+      </div>
     </div>
-  </motion.section>
+  </section>
 );
 
 // ---------- Contact Section ----------
 const Contact = () => (
-  <motion.section
-    initial={{ opacity: 0, y: 30 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8, delay: 0.6 }}
-    className="py-20"
-  >
+  <section className="py-20">
     <div className="container px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
       <div>
         <h4 className="text-xl font-semibold">Skontaktuj się</h4>
         <p className="mt-3 text-neutral-400">
           Chcesz wycenę lub więcej informacji? Napisz lub zadzwoń — odpowiadamy szybko i rzeczowo.
         </p>
+        <div className="mt-6 space-y-4">
+          <div className="flex items-center gap-3"><Phone size={18} /><div className="text-sm">+48 600 000 000</div></div>
+          <div className="flex items-center gap-3"><Mail size={18} /><div className="text-sm">kontakt@kk-invest.pl</div></div>
+          <div className="flex items-center gap-3"><MapPin size={18} /><div className="text-sm">Warszawa, Polska</div></div>
+        </div>
       </div>
+      <form className="p-6 rounded-2xl bg-white/4 border border-white/6 shadow-lg">
+        <div className="grid grid-cols-1 gap-4">
+          <input className="p-3 rounded-lg bg-transparent border border-white/8 outline-none" placeholder="Imię i nazwisko" />
+          <input className="p-3 rounded-lg bg-transparent border border-white/8 outline-none" placeholder="Email" />
+          <textarea className="p-3 rounded-lg bg-transparent border border-white/8 outline-none" rows={5} placeholder="Krótki opis inwestycji" />
+          <button className="px-4 py-3 rounded-xl bg-gradient-to-r from-[#00ffe1] to-[#0066ff] font-semibold">Wyślij wiadomość</button>
+        </div>
+      </form>
     </div>
-  </motion.section>
+  </section>
 );
 
 // ---------- Footer ----------
+import { Clock } from 'lucide-react';
+
 const Footer = () => (
   <footer className="py-8 border-t border-white/6 mt-12">
     <div className="container px-6 flex flex-col md:flex-row justify-between items-center gap-6">
       <Logo />
+      
       <div className="flex flex-col md:flex-row md:gap-12 text-sm opacity-70">
         <div>© {new Date().getFullYear()} K&K Invest — Wszystkie prawa zastrzeżone</div>
+        
         <div className="flex items-start md:items-center gap-2">
           <Clock size={18} className="mt-[2px]" />
           <div className="flex flex-col text-sm leading-tight">
@@ -164,6 +209,7 @@ export default function KKInvestLanding() {
       <Contact />
       <Footer />
       <OfficeHours />
+
 
       <style>{`
         .font-orbitron { font-family: 'Orbitron', sans-serif; }
