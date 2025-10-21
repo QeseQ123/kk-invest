@@ -9,14 +9,7 @@ import '@fontsource/orbitron';
 // ---------- Logo ----------
 const Logo = () => (
   <div className="flex items-center gap-3 select-none">
-    <svg
-      width="48"
-      height="48"
-      viewBox="0 0 48 48"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="rounded-2xl shadow-xl"
-    >
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="rounded-2xl shadow-xl">
       <rect width="48" height="48" rx="10" fill="url(#g)" />
       <defs>
         <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
@@ -27,9 +20,7 @@ const Logo = () => (
     </svg>
     <div>
       <div className="text-sm font-semibold">K&K Invest</div>
-      <div className="text-[11px] uppercase tracking-wide opacity-70">
-        Construction · Commercial · Residential
-      </div>
+      <div className="text-[11px] uppercase tracking-wide opacity-70">Construction · Commercial · Residential</div>
     </div>
   </div>
 );
@@ -37,15 +28,9 @@ const Logo = () => (
 // ---------- Navigation ----------
 const Nav = () => (
   <nav className="hidden md:flex gap-8 items-center text-sm">
-    <Link to="/o-nas" className="nav-link">
-      O nas
-    </Link>
-    <Link to="/realizacje" className="nav-link">
-      Realizacje
-    </Link>
-    <Link to="/kontakt" className="nav-link">
-      Kontakt
-    </Link>
+    <Link to="/o-nas" className="nav-link">O nas</Link>
+    <Link to="/realizacje" className="nav-link">Realizacje</Link>
+    <Link to="/kontakt" className="nav-link">Kontakt</Link>
     <a className="ml-4 px-4 py-2 rounded-lg bg-gradient-to-r from-[#ffd166] to-[#ff6b6b] text-black font-semibold shadow-lg">
       Zamów wycenę
     </a>
@@ -66,64 +51,33 @@ const Hero = () => (
     <FloatingGrid />
     <div className="container px-6 z-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <motion.div
-          initial={{ x: -60, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className="font-orbitron text-5xl md:text-6xl leading-tight">
-            K&K Invest — budujemy przyszłość
-          </h1>
+        <motion.div initial={{ x: -60, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.8 }}>
+          <h1 className="font-orbitron text-5xl md:text-6xl leading-tight">K&K Invest — budujemy przyszłość</h1>
           <p className="mt-4 text-lg max-w-xl opacity-80">
-            Specjalizujemy się w realizacjach komercyjnych i mieszkalnych — dostarczamy stan surowy z precyzją,
-            efektywnością i myśleniem przyszłościowym.
+            Specjalizujemy się w realizacjach komercyjnych i mieszkalnych — dostarczamy stan surowy z precyzją, efektywnością i myśleniem przyszłościowym.
           </p>
 
           <div className="mt-8 flex gap-4">
-            <Link
-              to="/realizacje"
-              className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-gradient-to-r from-[#00ffe1] to-[#0066ff] text-black font-semibold shadow-lg"
-            >
+            <Link to="/realizacje" className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-gradient-to-r from-[#00ffe1] to-[#0066ff] text-black font-semibold shadow-lg">
               Zobacz realizacje
             </Link>
-            <Link
-              to="/kontakt"
-              className="inline-flex items-center gap-3 px-5 py-3 rounded-xl border border-neutral-700/40"
-            >
+            <Link to="/kontakt" className="inline-flex items-center gap-3 px-5 py-3 rounded-xl border border-neutral-700/40">
               Kontakt
             </Link>
           </div>
 
           <div className="mt-8 grid grid-cols-3 gap-3 text-xs opacity-80">
-            <div className="p-3 bg-white/6 rounded-xl flex items-center gap-2">
-              <Building size={16} /> Komercyjne
-            </div>
-            <div className="p-3 bg-white/6 rounded-xl flex items-center gap-2">
-              <Home size={16} /> Mieszkalne
-            </div>
-            <div className="p-3 bg-white/6 rounded-xl flex items-center gap-2">
-              <Factory size={16} /> Stan surowy
-            </div>
+            <div className="p-3 bg-white/6 rounded-xl flex items-center gap-2"><Building size={16} /> Komercyjne</div>
+            <div className="p-3 bg-white/6 rounded-xl flex items-center gap-2"><Home size={16} /> Mieszkalne</div>
+            <div className="p-3 bg-white/6 rounded-xl flex items-center gap-2"><Factory size={16} /> Stan surowy</div>
           </div>
         </motion.div>
 
-        <motion.div
-          initial={{ scale: 0.95, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.9 }}
-          className="relative"
-        >
+        <motion.div initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.9 }} className="relative">
           <div className="h-[420px] rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-gradient-to-b from-white/3 to-black/5">
             <div className="w-full h-full grid grid-cols-2 grid-rows-2">
-              {['Komercja', 'Mieszkania', 'Inwestorzy', 'Stan surowy'].map((t, i) => (
-                <div
-                  key={i}
-                  className={`p-6 ${
-                    i % 2
-                      ? 'bg-[url("data:image/svg+xml;utf8,<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"400\\" height=\\"400\\"><rect width=\\"100%\\" height=\\"100%\\" fill=\\"%23000000%22 opacity=0.05/></svg>")]'
-                      : ''
-                  }`}
-                >
+              {['Komercja','Mieszkania','Inwestorzy','Stan surowy'].map((t, i) => (
+                <div key={i} className={`p-6 ${i % 2 ? 'bg-[url("data:image/svg+xml;utf8,<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"400\\" height=\\"400\\"><rect width=\\"100%\\" height=\\"100%\\" fill=\\"%23000000%22 opacity=0.05/></svg>")]' : ''}`}>
                   <div className="h-full flex flex-col justify-between">
                     <div>
                       <div className="text-sm opacity-70">{t}</div>
@@ -145,13 +99,7 @@ const Hero = () => (
 const Services = () => (
   <section className="py-20">
     <div className="container px-6">
-      <motion.h2
-        initial={{ y: 30, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        className="text-2xl font-semibold"
-      >
-        Nasza oferta
-      </motion.h2>
+      <motion.h2 initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="text-2xl font-semibold">Nasza oferta</motion.h2>
       <p className="mt-3 text-neutral-300 max-w-2xl">
         Kompleksowe wykonawstwo stanu surowego — od fundamentów po konstrukcję dachu.
       </p>
@@ -178,9 +126,7 @@ const Projects = () => (
   <section className="py-20 bg-gradient-to-b from-transparent to-black/5">
     <div className="container px-6">
       <h3 className="text-2xl font-semibold">Wybrane realizacje</h3>
-      <p className="mt-2 opacity-80">
-        Kompaktowa galeria naszych najnowszych projektów — surowo, precyzyjnie, przyszłościowo.
-      </p>
+      <p className="mt-2 opacity-80">Kompaktowa galeria naszych najnowszych projektów — surowo, precyzyjnie, przyszłościowo.</p>
       <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {Array.from({ length: 6 }).map((_, i) => (
           <motion.div key={i} whileHover={{ scale: 1.02 }} className="rounded-2xl overflow-hidden bg-white/4 border border-white/6 shadow-xl">
@@ -210,32 +156,17 @@ const Contact = () => (
           Chcesz wycenę lub więcej informacji? Napisz lub zadzwoń — odpowiadamy szybko i rzeczowo.
         </p>
         <div className="mt-6 space-y-4">
-          <div className="flex items-center gap-3">
-            <Phone size={18} />
-            <div className="text-sm">+48 600 000 000</div>
-          </div>
-          <div className="flex items-center gap-3">
-            <Mail size={18} />
-            <div className="text-sm">kontakt@kk-invest.pl</div>
-          </div>
-          <div className="flex items-center gap-3">
-            <MapPin size={18} />
-            <div className="text-sm">Warszawa, Polska</div>
-          </div>
+          <div className="flex items-center gap-3"><Phone size={18} /><div className="text-sm">+48 600 000 000</div></div>
+          <div className="flex items-center gap-3"><Mail size={18} /><div className="text-sm">kontakt@kk-invest.pl</div></div>
+          <div className="flex items-center gap-3"><MapPin size={18} /><div className="text-sm">Warszawa, Polska</div></div>
         </div>
       </div>
       <form className="p-6 rounded-2xl bg-white/4 border border-white/6 shadow-lg">
         <div className="grid grid-cols-1 gap-4">
           <input className="p-3 rounded-lg bg-transparent border border-white/8 outline-none" placeholder="Imię i nazwisko" />
           <input className="p-3 rounded-lg bg-transparent border border-white/8 outline-none" placeholder="Email" />
-          <textarea
-            className="p-3 rounded-lg bg-transparent border border-white/8 outline-none"
-            rows={5}
-            placeholder="Krótki opis inwestycji"
-          />
-          <button className="px-4 py-3 rounded-xl bg-gradient-to-r from-[#00ffe1] to-[#0066ff] font-semibold">
-            Wyślij wiadomość
-          </button>
+          <textarea className="p-3 rounded-lg bg-transparent border border-white/8 outline-none" rows={5} placeholder="Krótki opis inwestycji" />
+          <button className="px-4 py-3 rounded-xl bg-gradient-to-r from-[#00ffe1] to-[#0066ff] font-semibold">Wyślij wiadomość</button>
         </div>
       </form>
     </div>
