@@ -5,6 +5,8 @@ import { Mail, Phone, MapPin, Home, Building, Factory } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import '@fontsource/inter';
 import '@fontsource/orbitron';
+import OfficeHours from './OfficeHours';
+
 
 // ---------- Logo ----------
 const Logo = () => (
@@ -206,6 +208,8 @@ export default function KKInvestLanding() {
       <Projects />
       <Contact />
       <Footer />
+      <OfficeHours />
+
 
       <style>{`
         .font-orbitron { font-family: 'Orbitron', sans-serif; }
