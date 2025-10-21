@@ -6,6 +6,7 @@ import { Phone, Mail, MapPin, Building, Home, Factory } from "lucide-react";
 import "@fontsource/inter";
 import "@fontsource/orbitron";
 import LogoImage from "../assets/logo.png";
+import OfficeHours from "./OfficeHours";
 
 export default function KKInvestLanding() {
   return (
