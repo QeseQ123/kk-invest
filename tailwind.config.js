@@ -1,13 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./index.html",
-    "./src/**/*.{js,jsx,ts,tsx}"
+    "./index.html",          // ścieżka do głównego pliku HTML
+    "./src/**/*.{js,jsx,ts,tsx}"  // wszystkie pliki React w src
   ],
   theme: {
     extend: {
       fontFamily: {
-        inter: ['Inter', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'], // font Inter jako domyślny dla klasy font-inter
       },
       colors: {
         primary: '#0066FF',
