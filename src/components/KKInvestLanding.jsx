@@ -1,14 +1,16 @@
 // src/components/KKInvestLanding.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Home, Building, Factory, Clock } from 'lucide-react';
+import { Mail, Phone, MapPin, Home, Building, Factory } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import '@fontsource/inter';
 import '@fontsource/orbitron';
 import OfficeHours from './OfficeHours';
-import LogoImage from '../assets/logo.png'; // jeśli używasz obrazka
+
 
 // ---------- Logo ----------
+import LogoImage from '../assets/logo.png'; // jeśli używasz obrazka
+
 const Logo = () => (
   <div className="flex items-center gap-3 select-none">
     <img 
@@ -21,6 +23,9 @@ const Logo = () => (
     </div>
   </div>
 );
+
+
+
 
 // ---------- Navigation ----------
 const Nav = () => (
@@ -118,14 +123,12 @@ const Services = () => (
   </section>
 );
 
-// ---------- Projects Section (połączone) ----------
+// ---------- Projects Section ----------
 const Projects = () => (
-  <section className="py-20 bg-transparent">
+  <section className="py-20 bg-gradient-to-b from-transparent to-black/5">
     <div className="container px-6">
       <h3 className="text-2xl font-semibold">Wybrane realizacje</h3>
-      <p className="mt-2 opacity-80">
-        Kompaktowa galeria naszych najnowszych projektów — surowo, precyzyjnie, przyszłościowo.
-      </p>
+      <p className="mt-2 opacity-80">Kompaktowa galeria naszych najnowszych projektów — surowo, precyzyjnie, przyszłościowo.</p>
       <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {Array.from({ length: 6 }).map((_, i) => (
           <motion.div key={i} whileHover={{ scale: 1.02 }} className="rounded-2xl overflow-hidden bg-white/4 border border-white/6 shadow-xl">
@@ -173,12 +176,16 @@ const Contact = () => (
 );
 
 // ---------- Footer ----------
+import { Clock } from 'lucide-react';
+
 const Footer = () => (
   <footer className="py-8 border-t border-white/6 mt-12">
     <div className="container px-6 flex flex-col md:flex-row justify-between items-center gap-6">
       <Logo />
+      
       <div className="flex flex-col md:flex-row md:gap-12 text-sm opacity-70">
         <div>© {new Date().getFullYear()} K&K Invest — Wszystkie prawa zastrzeżone</div>
+        
         <div className="flex items-start md:items-center gap-2">
           <Clock size={18} className="mt-[2px]" />
           <div className="flex flex-col text-sm leading-tight">
@@ -201,6 +208,8 @@ export default function KKInvestLanding() {
       <Projects />
       <Contact />
       <Footer />
+      <OfficeHours />
+
 
       <style>{`
         .font-orbitron { font-family: 'Orbitron', sans-serif; }
