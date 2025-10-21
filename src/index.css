@@ -1,19 +1,13 @@
-/* src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ----------------- Root variables ----------------- */
 :root {
   --bg-1: #000000;
   --bg-2: #071129;
-  --bg-3: #050816;
 }
 
-/* ----------------- Global styles ----------------- */
-html,
-body,
-#root {
+html, body, #root {
   height: 100%;
 }
 
@@ -21,7 +15,6 @@ body {
   @apply bg-gradient-to-b from-black via-[#050816] to-[#071129] text-white font-inter;
 }
 
-/* ----------------- Helpers ----------------- */
 .container {
   @apply max-w-7xl mx-auto;
 }
