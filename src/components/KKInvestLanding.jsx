@@ -162,7 +162,7 @@ export default function KKInvestLanding() {
                 <Phone size={18} /> +48 600 000 000
               </div>
               <div className="flex items-center gap-3">
-                <Mail size={18} /> kontakt@kk-invest.pl
+                <Mail size={18} /> biuro@kk-invest.net
               </div>
               <div className="flex items-center gap-3">
                 <MapPin size={18} /> ul. Batorego 23 lok. 6, Gdynia

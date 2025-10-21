@@ -3,10 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>K&K Invest</title>
+
+    <!-- Tytuł i opis SEO -->
+    <title>K&K Invest | Generalny Wykonawca Inwestycji Budowlanych</title>
+    <meta
+      name="description"
+      content="K&K Invest – realizacje budowlane w Gdyni i całej Polsce. Specjalizujemy się w stanach surowych: mieszkalnych, przemysłowych i usługowych. Budujemy solidnie i terminowo."
+    />
+    <meta
+      name="keywords"
+      content="K&K Invest, budowa, Gdynia, stan surowy, inwestycje budowlane, generalny wykonawca, konstrukcje betonowe, firma budowlana"
+    />
+    <meta name="author" content="K&K Invest Sp. z o.o." />
+
+    <!-- Open Graph dla Facebook / LinkedIn -->
+    <meta property="og:title" content="K&K Invest — budujemy przyszłość" />
+    <meta
+      property="og:description"
+      content="Profesjonalne wykonawstwo inwestycji budowlanych. Od fundamentów po dach — solidnie, terminowo, z doświadczeniem."
+    />
+    <meta property="og:image" content="/logo.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kk-invest.pl" />
+
+    <!-- Favicon i ikony -->
+    <link rel="icon" href="/logo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+
+    <!-- Fonts preload (dla lepszego UX) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Tailwind -->
+    <link rel="stylesheet" href="/src/index.css" />
+
+    <!-- Kolor motywu przeglądarki -->
+    <meta name="theme-color" content="#0033FF" />
   </head>
-  <body class="bg-[#0a0a0a]">
+
+  <body class="bg-[#0a0a0a] text-white font-inter">
     <div id="root"></div>
+
+    <!-- React App -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
