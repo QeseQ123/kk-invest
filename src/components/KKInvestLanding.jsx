@@ -9,7 +9,7 @@ import OfficeHours from './OfficeHours';
 
 
 // ---------- Logo ----------
-import LogoImage from '../assets/logo.png'; // ścieżka do Twojego logo
+import LogoImage from '../assets/logo.png'; // jeśli używasz obrazka
 
 const Logo = () => (
   <div className="flex items-center gap-3 select-none">
@@ -20,12 +20,10 @@ const Logo = () => (
     />
     <div>
       <div className="text-sm font-semibold">K&K Invest</div>
-      <div className="text-[11px] uppercase tracking-wide opacity-70">
-        Construction · Commercial · Residential
-      </div>
     </div>
   </div>
 );
+
 
 
 // ---------- Navigation ----------
