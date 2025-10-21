@@ -1,7 +1,7 @@
 // src/components/KKInvestLanding.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Menu, Mail, Phone, MapPin } from 'lucide-react';
+import { Menu, Mail, Phone, MapPin, Home, Building, ShoppingCart, Factory } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // ---------- Logo ----------
@@ -63,35 +63,44 @@ const Hero = () => (
               Kontakt
             </Link>
           </div>
-
-          <div className="mt-8 grid grid-cols-3 gap-3 text-xs opacity-80">
-            <div className="p-3 bg-white/6 rounded-xl">Komercyjne</div>
-            <div className="p-3 bg-white/6 rounded-xl">Mieszkalne</div>
-            <div className="p-3 bg-white/6 rounded-xl">Stan surowy</div>
-          </div>
-        </motion.div>
-
-        <motion.div initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.9 }} className="relative">
-          <div className="h-[420px] rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-gradient-to-b from-white/3 to-black/5">
-            <div className="w-full h-full grid grid-cols-2 grid-rows-2">
-              {['Komercja','Mieszkania','Inwestorzy','Stan surowy'].map((t, i) => (
-                <div key={i} className={`p-6 ${i % 2 ? 'bg-[url("data:image/svg+xml;utf8,<svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"400\\" height=\\"400\\"><rect width=\\"100%\\" height=\\"100%\\" fill=\\"%23000000%22 opacity=0.05/></svg>")]' : ''}`}>
-                  <div className="h-full flex flex-col justify-between">
-                    <div>
-                      <div className="text-sm opacity-70">{t}</div>
-                      <div className="mt-2 font-semibold text-lg">Projekt #{i + 1}</div>
-                    </div>
-                    <div className="text-xs opacity-60">Powierzchnia: {Math.floor(5000 + i * 1200)} m²</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         </motion.div>
       </div>
     </div>
   </section>
 );
+
+// ---------- Object Types Section (z ikonami) ----------
+const ObjectTypes = () => {
+  const types = [
+    { title: 'Mieszkaniowe', desc: 'Budynki przeznaczone do zamieszkania.', icon: Home },
+    { title: 'Użyteczności publicznej', desc: 'Szkoły, przedszkola, biblioteki.', icon: Building },
+    { title: 'Handlowo-usługowe (komercja)', desc: 'Sklepy, biura, restauracje.', icon: ShoppingCart },
+    { title: 'Przemysłowe', desc: 'Hale produkcyjne, magazyny, warsztaty.', icon: Factory },
+  ];
+
+  return (
+    <section className="py-20">
+      <div className="container px-6">
+        <h2 className="text-2xl font-semibold">Rodzaje realizacji</h2>
+        <p className="mt-2 text-neutral-400">
+          Specjalizujemy się w wykonawstwie stanów surowych różnych typów obiektów:
+        </p>
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {types.map((item, i) => {
+            const Icon = item.icon;
+            return (
+              <div key={i} className="p-6 bg-white/5 rounded-2xl border border-white/10 shadow-lg flex flex-col items-center text-center">
+                <Icon className="w-10 h-10 text-[#00FFE1] mb-4" />
+                <div className="font-semibold text-lg">{item.title}</div>
+                <div className="mt-2 text-sm text-neutral-300">{item.desc}</div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 // ---------- Services Section ----------
 const Services = () => (
@@ -186,6 +195,7 @@ export default function KKInvestLanding() {
   return (
     <>
       <Hero />
+      <ObjectTypes /> {/* NOWA SEKCJA */}
       <Services />
       <Projects />
       <Contact />
