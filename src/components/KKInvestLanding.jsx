@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { House, Building, ShoppingBag, Hammer } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import '@fontsource/inter';
+import '@fontsource/orbitron';
 
 // ---------- Logo ----------
 const Logo = () => (
