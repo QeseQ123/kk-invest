@@ -174,11 +174,25 @@ const Contact = () => (
 );
 
 // ---------- Footer ----------
+import { Clock } from 'lucide-react';
+
 const Footer = () => (
   <footer className="py-8 border-t border-white/6 mt-12">
-    <div className="container px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+    <div className="container px-6 flex flex-col md:flex-row justify-between items-center gap-6">
       <Logo />
-      <div className="text-sm opacity-70">© {new Date().getFullYear()} K&K Invest — Wszystkie prawa zastrzeżone</div>
+      
+      <div className="flex flex-col md:flex-row md:gap-12 text-sm opacity-70">
+        <div>© {new Date().getFullYear()} K&K Invest — Wszystkie prawa zastrzeżone</div>
+        
+        <div className="flex items-start md:items-center gap-2">
+          <Clock size={18} className="mt-[2px]" />
+          <div className="flex flex-col text-sm leading-tight">
+            <span className="font-semibold">Godziny otwarcia:</span>
+            <span>Pon-Pt: 08:00 – 17:00</span>
+            <span>Sob-Nd: Zamknięte</span>
+          </div>
+        </div>
+      </div>
     </div>
   </footer>
 );
