@@ -9,23 +9,24 @@ import OfficeHours from './OfficeHours';
 
 
 // ---------- Logo ----------
+import LogoImage from '../assets/logo.png'; // ścieżka do Twojego logo
+
 const Logo = () => (
   <div className="flex items-center gap-3 select-none">
-    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="rounded-2xl shadow-xl">
-      <rect width="48" height="48" rx="10" fill="url(#g)" />
-      <defs>
-        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#00FFE1" />
-          <stop offset="1" stopColor="#0066FF" />
-        </linearGradient>
-      </defs>
-    </svg>
+    <img 
+      src={LogoImage} 
+      alt="K&K Invest Logo" 
+      className="w-12 h-12 object-contain rounded-2xl shadow-xl" 
+    />
     <div>
       <div className="text-sm font-semibold">K&K Invest</div>
-      <div className="text-[11px] uppercase tracking-wide opacity-70">Construction · Commercial · Residential</div>
+      <div className="text-[11px] uppercase tracking-wide opacity-70">
+        Construction · Commercial · Residential
+      </div>
     </div>
   </div>
 );
+
 
 // ---------- Navigation ----------
 const Nav = () => (
