@@ -19,6 +19,7 @@ import {
 import "@fontsource/inter";
 import "@fontsource/orbitron";
 import LogoImage from "../assets/logo.png";
+import OfficeHours from "./OfficeHours";
 
 export default function KKInvestLanding() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -282,3 +283,5 @@ export default function KKInvestLanding() {
     </div>
   );
 }
+<OfficeHours />
+
