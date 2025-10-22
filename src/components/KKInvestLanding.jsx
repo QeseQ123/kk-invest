@@ -1,4 +1,3 @@
-// src/components/KKInvestLanding.jsx
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -280,8 +279,9 @@ export default function KKInvestLanding() {
       <footer className="py-8 text-center text-sm text-gray-400 border-t border-white/10 bg-[#0A0D1A]">
         © {new Date().getFullYear()} K&K Invest — Wszystkie prawa zastrzeżone
       </footer>
+
+      {/* ---------------- OFFICE HOURS FLOAT ---------------- */}
+      <OfficeHours />
     </div>
   );
 }
-<OfficeHours />
-
