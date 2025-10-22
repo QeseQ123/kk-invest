@@ -1,14 +1,51 @@
 // src/components/KKInvestLanding.jsx
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Building, Home, Factory } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Building,
+  Home,
+  Factory,
+  Menu,
+  X,
+  ShieldCheck,
+  Clock,
+  Star,
+} from "lucide-react";
 import "@fontsource/inter";
 import "@fontsource/orbitron";
 import LogoImage from "../assets/logo.png";
-import OfficeHours from "./OfficeHours";
+
+// 🔹 placeholdery realizacji (podmień na swoje)
+import Real1 from "../assets/realizacje/real1.jpg";
+import Real2 from "../assets/realizacje/real2.jpg";
+import Real3 from "../assets/realizacje/real3.jpg";
+import Real4 from "../assets/realizacje/real4.jpg";
+import Real5 from "../assets/realizacje/real5.jpg";
 
 export default function KKInvestLanding() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [index, setIndex] = useState(0);
+
+  const realizacje = [
+    { img: Real1, title: "Osiedle Gdańsk – Morena" },
+    { img: Real2, title: "Hala przemysłowa – Puck" },
+    { img: Real3, title: "Budynek usługowy – Gdynia" },
+    { img: Real4, title: "Zabudowa bliźniacza – Rumia" },
+    { img: Real5, title: "Magazyn logistyczny – Reda" },
+  ];
+
+  // autoplay co 5s
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % realizacje.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="font-inter text-white bg-[#0A0D1A]">
       {/* ---------------- HEADER ---------------- */}
@@ -25,6 +62,7 @@ export default function KKInvestLanding() {
             </span>
           </div>
 
+          {/* DESKTOP MENU */}
           <nav className="hidden md:flex items-center gap-8 text-sm">
             <Link to="/o-nas" className="hover:text-[#00A8FF] transition">
               O nas
@@ -42,25 +80,49 @@ export default function KKInvestLanding() {
               Zamów wycenę
             </Link>
           </nav>
+
+          {/* MOBILE MENU BUTTON */}
+          <button
+            className="md:hidden"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
+
+        {/* MOBILE MENU DROPDOWN */}
+        {menuOpen && (
+          <motion.div
+            initial={{ height: 0 }}
+            animate={{ height: "auto" }}
+            className="md:hidden bg-[#0A0D1A]/95 backdrop-blur-md border-t border-white/10"
+          >
+            <div className="flex flex-col items-center py-4 space-y-4 text-sm">
+              <Link to="/o-nas" onClick={() => setMenuOpen(false)}>
+                O nas
+              </Link>
+              <Link to="/realizacje" onClick={() => setMenuOpen(false)}>
+                Realizacje
+              </Link>
+              <Link to="/kontakt" onClick={() => setMenuOpen(false)}>
+                Kontakt
+              </Link>
+              <Link
+                to="/wycena"
+                onClick={() => setMenuOpen(false)}
+                className="px-4 py-2 rounded-lg bg-[#00A8FF] text-white font-semibold shadow-md"
+              >
+                Zamów wycenę
+              </Link>
+            </div>
+          </motion.div>
+        )}
       </header>
 
       {/* ---------------- HERO ---------------- */}
       <section className="relative flex flex-col justify-center items-center min-h-screen text-center px-6 overflow-hidden">
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-[#001a66] via-[#0033FF] to-[#000a33]"
-          animate={{
-            backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          style={{
-            backgroundSize: "200% 200%",
-          }}
-        ></motion.div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#001a66] via-[#0033FF] to-[#000a33] animate-gradient bg-[length:200%_200%]" />
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -76,7 +138,7 @@ export default function KKInvestLanding() {
           <h1 className="font-orbitron text-4xl md:text-6xl font-bold leading-tight">
             Budujemy solidne fundamenty Twojej przyszłości
           </h1>
-          <p className="mt-6 text-lg text-blue-100">
+          <p className="mt-6 text-lg text-blue-100 leading-loose">
             Realizujemy inwestycje budowlane w stanie surowym — mieszkaniowe,
             przemysłowe i użyteczności publicznej.
           </p>
@@ -93,6 +155,12 @@ export default function KKInvestLanding() {
             >
               Skontaktuj się
             </Link>
+            <Link
+              to="/wycena"
+              className="px-6 py-3 rounded-xl bg-[#00A8FF] text-white font-semibold shadow-md hover:scale-105 transition"
+            >
+              Bezpłatna wycena
+            </Link>
           </div>
         </motion.div>
       </section>
@@ -102,11 +170,12 @@ export default function KKInvestLanding() {
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           className="text-3xl font-semibold mb-6"
         >
           O firmie
         </motion.h2>
-        <p className="max-w-3xl mx-auto text-gray-300 leading-relaxed">
+        <p className="max-w-3xl mx-auto text-gray-300 leading-loose">
           K&K Invest to zespół doświadczonych specjalistów z branży budowlanej,
           którzy od lat realizują inwestycje o różnej skali — od budynków
           mieszkalnych po obiekty przemysłowe i użyteczności publicznej.
@@ -114,44 +183,75 @@ export default function KKInvestLanding() {
         </p>
       </section>
 
-      {/* ---------------- SERVICES ---------------- */}
-      <section className="py-20 bg-[#001133] text-center px-6">
-        <h2 className="text-3xl font-semibold mb-10">Nasze usługi</h2>
+      {/* ---------------- REALIZACJE / CAROUSEL ---------------- */}
+      <section className="py-20 bg-[#001133] text-center px-6 overflow-hidden">
+        <h2 className="text-3xl font-semibold mb-10">Nasze realizacje</h2>
+
+        <div className="relative w-full max-w-6xl mx-auto overflow-hidden rounded-2xl">
+          <motion.div
+            className="flex gap-6 cursor-grab active:cursor-grabbing"
+            drag="x"
+            dragConstraints={{ left: -300 * realizacje.length, right: 0 }}
+            animate={{ x: -index * 300 }}
+            transition={{ type: "spring", stiffness: 70, damping: 20 }}
+          >
+            {realizacje.map((item, i) => (
+              <motion.div
+                key={i}
+                className="min-w-[300px] rounded-xl overflow-hidden bg-white/5 border border-white/10 shadow-lg hover:shadow-blue-500/10 transition relative"
+              >
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="w-full h-60 object-cover opacity-90 hover:opacity-100 transition"
+                />
+                <div className="absolute bottom-0 inset-x-0 bg-black/50 py-3 text-sm font-semibold">
+                  {item.title}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ---------------- WHY US ---------------- */}
+      <section className="py-20 bg-[#0B0F1E] text-center px-6">
+        <h2 className="text-3xl font-semibold mb-10">Dlaczego my?</h2>
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {[
             {
-              icon: <Building size={36} />,
-              title: "Stany surowe",
-              desc: "Kompleksowe wykonanie konstrukcji budynków mieszkalnych i przemysłowych.",
+              icon: <ShieldCheck size={36} />,
+              title: "Bezpieczeństwo i jakość",
+              desc: "Stosujemy sprawdzone technologie i materiały, zapewniające trwałość i bezpieczeństwo.",
             },
             {
-              icon: <Factory size={36} />,
-              title: "Generalne wykonawstwo",
-              desc: "Prowadzenie inwestycji od projektu do oddania obiektu.",
+              icon: <Clock size={36} />,
+              title: "Terminowość",
+              desc: "Każdy etap inwestycji realizujemy zgodnie z ustalonym harmonogramem.",
             },
             {
-              icon: <Home size={36} />,
-              title: "Doradztwo techniczne",
-              desc: "Pomoc w doborze technologii, materiałów i harmonogramów realizacji.",
+              icon: <Star size={36} />,
+              title: "Zaufanie klientów",
+              desc: "Z dumą współpracujemy z inwestorami prywatnymi i instytucjonalnymi w całym kraju.",
             },
-          ].map((service, i) => (
+          ].map((item, i) => (
             <motion.div
               key={i}
               whileHover={{ y: -6 }}
               className="p-8 bg-white/5 border border-white/10 rounded-2xl shadow-lg"
             >
               <div className="text-[#00A8FF] mb-4 flex justify-center">
-                {service.icon}
+                {item.icon}
               </div>
-              <h3 className="font-semibold text-lg mb-3">{service.title}</h3>
-              <p className="text-gray-300 text-sm">{service.desc}</p>
+              <h3 className="font-semibold text-lg mb-3">{item.title}</h3>
+              <p className="text-gray-300 text-sm">{item.desc}</p>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* ---------------- MAP + CONTACT ---------------- */}
-      <section className="py-20 bg-[#0B0F1E] px-6">
+      {/* ---------------- CONTACT ---------------- */}
+      <section className="py-20 bg-[#0A0D1A] px-6">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
           <div>
             <h3 className="text-2xl font-semibold mb-4">Kontakt</h3>
@@ -171,7 +271,7 @@ export default function KKInvestLanding() {
             </div>
           </div>
 
-          <div className="rounded-2xl overflow-hidden shadow-lg border border-white/10">
+          <div className="relative group rounded-2xl overflow-hidden shadow-lg border border-white/10">
             <iframe
               title="K&K Invest Gdynia"
               src="https://www.google.com/maps?q=K%26K%20Invest%20Batorego%2023%20Gdynia&output=embed"
@@ -181,6 +281,16 @@ export default function KKInvestLanding() {
               allowFullScreen=""
               loading="lazy"
             ></iframe>
+            <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition">
+              <a
+                href="https://goo.gl/maps"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-[#00A8FF] rounded-lg font-semibold"
+              >
+                Otwórz w Mapach Google
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -192,3 +302,16 @@ export default function KKInvestLanding() {
     </div>
   );
 }
+
+/* Tailwind animation (add in your global.css or tailwind.css)
+-------------------------------------------------------------
+@keyframes gradient {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+.animate-gradient {
+  animation: gradient 15s linear infinite;
+}
+-------------------------------------------------------------
+*/

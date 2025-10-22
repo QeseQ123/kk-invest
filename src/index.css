@@ -25,3 +25,20 @@ body {
 .container {
   @apply max-w-7xl mx-auto;
 }
+
+/* --- Animacja gradientu hero --- */
+@keyframes gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.animate-gradient {
+  animation: gradient 15s linear infinite;
+}
